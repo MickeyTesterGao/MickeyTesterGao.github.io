@@ -133,7 +133,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>Mickey</title>
+    <title>Test | Mickey</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -150,7 +150,7 @@
       <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
       <ul id="menu" role="menubar" aria-hidden="false">
         
-        <li role="menuitem"><a href="/" class="current"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
         
         <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
         
@@ -171,25 +171,22 @@
         <div class="main-container">
           <div class="content">
             
-
-<div id="index" class="index page">
+<div id="post" class="page">
   
   <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/26/Test/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="MickeyTesterGao">
-        <meta itemprop="description" content>
-        <meta itemprop="image" content="/images/logo1.png">
+       <meta itemprop="name" content="MickeyTesterGao">
+       <meta itemprop="description" content>
+       <meta itemprop="image" content="/images/logo1.png">
       </span>
       <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="Mickey">
+       <meta itemprop="name" content="Mickey">
       </span>
     </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/06/26/Test/" itemprop="url">Test</a>
-      </h1>
+      <h1 class="post-title" itemprop="name headline">Test</h1>
       <div class="post-meta">
         
         <span class="post-date">
@@ -201,7 +198,6 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      
       <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">"My New Post"</span><br></code></pre></td></tr></table></figure>
 
@@ -210,50 +206,23 @@
 
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
 
-      
     </main>
     <footer class="post-footer">
       
     </footer>
   </article>
   
-  <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/26/hello-world/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="MickeyTesterGao">
-        <meta itemprop="description" content>
-        <meta itemprop="image" content="/images/logo1.png">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="Mickey">
-      </span>
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/06/26/hello-world/" rel="next" title="Hello World"><i class="fas fa-angle-left"></i><span class="nav-title">Hello World</span></a>
+      
     </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/06/26/hello-world/" itemprop="url">Hello World</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-26T16:36:19+08:00">2019-06-26 16:36:19</time></span>
-        </span>
-        
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
+    <div class="page-nav-prev page-nav-item">
       
-      <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-
-      
-    </main>
-    <footer class="post-footer">
-      
-    </footer>
-  </article>
-  
+    </div>
+  </nav>
   
   
 </div>
@@ -315,6 +284,17 @@
 
 
   <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li></ol></li></ol></div>
+    </div>
+    
     
     
     <hr>
