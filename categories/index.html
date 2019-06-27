@@ -693,19 +693,18 @@
 
   <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
   <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-  <div id="gitalk-container"></div>
-  <script type="text/javascript">
-    var gitalk = new Gitalk({
-      clientID: 'd774dac95c063b8da401',
-      clientSecret: '7bd79d79af0e0151ffbf5517a9bc26d5b4a33900',
-      repo: 'mickeytestergao.github.io',
-      owner: 'MickeyTesterGao',
-      admin: ['MickeyTesterGao'],
-      id: location.pathname,
-      distractionFreeMode: 'true'
-    })
-    gitalk.render('gitalk-container')
-  </script>
+  <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '',
+          clientSecret: '',
+          repo: 'mickeytestergao.github.io',
+          owner: '',
+          admin: [''],
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')
+       </script>
 
 
   
