@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="postman系列,">
 
 
 
@@ -81,16 +81,26 @@
 
 
 
-<meta name="description" content="MickeyTesterGao个人站，主要涉及测试知识共享、实践教程、前沿技术共同学习等方面">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MickeyTesterGao">
-<meta property="og:url" content="http://yoursite.com/categories/hexo/index.html">
+<meta name="description" content="用现有开源工具搭建一套轻量级接口自动化测试框架，集成了报告模板和Email发送；">
+<meta name="keywords" content="postman系列">
+<meta property="og:type" content="article">
+<meta property="og:title" content="postman+newman+jenkins持续集成">
+<meta property="og:url" content="http://yoursite.com/2019/06/28/postman1/index.html">
 <meta property="og:site_name" content="MickeyTesterGao">
-<meta property="og:description" content="MickeyTesterGao个人站，主要涉及测试知识共享、实践教程、前沿技术共同学习等方面">
+<meta property="og:description" content="用现有开源工具搭建一套轻量级接口自动化测试框架，集成了报告模板和Email发送；">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/06/28/postman1/logo.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/06/28/postman1/update.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/28/postman1/html.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/28/postman1/report.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/28/postman1/email1.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/28/postman1/email2.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/28/postman1/success.png">
+<meta property="og:updated_time" content="2019-06-28T07:30:33.444Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MickeyTesterGao">
-<meta name="twitter:description" content="MickeyTesterGao个人站，主要涉及测试知识共享、实践教程、前沿技术共同学习等方面">
+<meta name="twitter:title" content="postman+newman+jenkins持续集成">
+<meta name="twitter:description" content="用现有开源工具搭建一套轻量级接口自动化测试框架，集成了报告模板和Email发送；">
+<meta name="twitter:image" content="http://yoursite.com/2019/06/28/postman1/logo.jpg">
 
 
 
@@ -120,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/hexo/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/28/postman1/">
 
 
 
 
 
-  <title>分类: hexo | MickeyTesterGao</title>
+  <title>postman+newman+jenkins持续集成 | MickeyTesterGao</title>
   
 
 
@@ -145,7 +155,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <a href="https://github.com/MickeyTesterGao/" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
 
@@ -282,53 +292,242 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>hexo<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/28/postman1/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MickeyTesterGao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/logo1.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MickeyTesterGao">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/06/26/Test/" itemprop="url">
-              
-                <span itemprop="name">Test</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">postman+newman+jenkins持续集成</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-26T22:03:13+08:00" content="2019-06-26">
-          06-26
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-28T11:10:24+08:00">
+                2019-06-28
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/postman系列/" itemprop="url" rel="index">
+                    <span itemprop="name">postman系列</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  838 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <img src="/2019/06/28/postman1/logo.jpg" title="postman">
+<p>用现有开源工具搭建一套轻量级接口自动化测试框架，集成了报告模板和Email发送；</p>
+<a id="more"></a>
+<h2 id="环境准备："><a href="#环境准备：" class="headerlink" title="环境准备："></a>环境准备：</h2><h3 id="测试系统macOS"><a href="#测试系统macOS" class="headerlink" title="测试系统macOS"></a>测试系统macOS</h3><pre><code>1、本地jenkins环境
+建议jenkins官网下载macos对应版本，[官网地址](https://jenkins.io/zh/)
+2、安装postman软件
+建议官网下载最新版本，[官网地址](https://www.getpostman.com/)
+3、注册github账号，用于存放脚本
+4、安装newman插件
+建议命令安装 npm或者brew
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">$ npm install -g newman<br></code></pre></td></tr></table></figure></code></pre><h2 id="postman案例导出"><a href="#postman案例导出" class="headerlink" title="postman案例导出"></a>postman案例导出</h2><h3 id="导出两个json文件"><a href="#导出两个json文件" class="headerlink" title="导出两个json文件"></a>导出两个json文件</h3><ul>
+<li>注“(有用到环境变量的可以导出，如不需要可以不导出)”<br>1、collections导出步骤–&gt;选中collections–&gt;点击右下角三个点–&gt;选中Export 确定导出即可<br>2、环境变量导出步骤若你的脚本中存在环境变量，那么也需要将环境变量一并导出为json格式<br>导出方法如下，点击postman右上角设置按钮，按照下面操作步骤导出即可；<br>3、生成的两个json格式的文件，一个为案例文件一个为环境变量文件，将文件提交到github项目上面。<br>参考我的项目格式：<br>生成报告的模板有很多，也可以自定义，我这个是在github上找的，[我的项目地址]（<a href="https://github.com/MickeyTesterGao/postman_autotest/）" target="_blank" rel="noopener">https://github.com/MickeyTesterGao/postman_autotest/）</a></li>
+</ul>
+<h2 id="jenkins配置"><a href="#jenkins配置" class="headerlink" title="jenkins配置"></a>jenkins配置</h2><h3 id="jenkins常用命令"><a href="#jenkins常用命令" class="headerlink" title="jenkins常用命令"></a>jenkins常用命令</h3><pre><code>(1)先说两个jenkins常用命令
+启动：
+$ sudo launchctl load /Library/LaunchDaemons/org.jenkins-ci.plist
+停止:
+$ sudo launchctl unload /Library/LaunchDaemons/org.jenkins-ci.plist
+(2)新建一个jenkins项目,用Freestyle project，项目名字随便起</code></pre><h3 id="jenkins项目配置"><a href="#jenkins项目配置" class="headerlink" title="jenkins项目配置"></a>jenkins项目配置</h3><p>(1)配置git<br>这块不详细说了，并不难，之前了解过jenkins的都应该会配置；<br>(2)配置shell脚本</p>
+<ul>
+<li>注：仅供参考，环境不同，脚本也会不一样<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined">#!/bin/bash -ilex<br>cd /Users/Shared/Jenkins/Home/workspace/postman_api_auto/<br>newman run portApiTest.postman_collection.json -e portapitest.postman_environment.json --reporters cli,html --reporter-html-template templates/htmlreqres.hbs --reporter-html-export newman/index.html portApiTest.postman_collection.json<br></code></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>(3)增加html报告<br>需要引入HTML插件名称HTML_Publisher,直接在Manage Jenkins–&gt;Manage Plugins 里面下载，你会发现下载失败，由于国内有墙的原因，可以换个<br>国内镜像下载：<a href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json</a></p>
+<img src="/2019/06/28/postman1/update.png" title="镜像更新位置">
+<p>此时部署一下项目，会发现左侧菜单栏多了一栏html report</p>
+<img src="/2019/06/28/postman1/html.png" title="html报告显示位置">
+<p>点击进去你会发现样式不显示，可能会存在这种情况，解决方式如下：<br>安装Groovy插件，重启jenkins<br>使用管理员账号登录jenkins，进入项目配置页 ==&gt; Post Steps ==&gt; 添加Execute system Groovy script ==&gt; 输入 System.setProperty(“hudson.model.DirectoryBrowserSupport.CSP”, “”) ==&gt; 保存<br>再重新部署看效果</p>
+<img src="/2019/06/28/postman1/report.png" title="html报告显示">
+<p>(4)配置发送邮件<br>首先配置公共信息配置，我以QQ邮箱为例，首先manage jenkins==&gt;configure system ==&gt;extended E-mail Notification</p>
+<img src="/2019/06/28/postman1/email1.png" title="邮件信息">
+<p>下面的Default Triggers需要勾选Failure—Any和Success<br>邮件通知配置：</p>
+<img src="/2019/06/28/postman1/email2.png" title="邮件通知">
+<p>之后应用–&gt;保存<br>(5)项目层级配置<br>配置构建后操作，增加Editable Email Notification<br>需要更改的地方：<br>Prohject Recipient List 填写你的邮箱<br>Content Type 选择HTML(text/html)<br>Advances Settings 增加Trigger 增加Failure—Any和Success<br>下面我以Success为例说一下里面的配置</p>
+<img src="/2019/06/28/postman1/success.png" title="邮件配置">
+<p>说一下附件取的路径，默认是workspace的job下面，也就是workspace/项目名称，<br>我的shell里面建立了一个newman的文件来存放测试报告；</p>
+<h2 id="最后一步"><a href="#最后一步" class="headerlink" title="最后一步"></a>最后一步</h2><p>重新部署，邮箱就能收到测试报告了；</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/postman系列/" rel="tag"><i class="fa fa-tag"></i> postman系列</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/26/Test/" rel="next" title="Test">
+                <i class="fa fa-chevron-left"></i> Test
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -336,6 +535,11 @@
 
 
           
+
+  
+  <div id="gitalk-container"></div>
+  
+
 
 
 
@@ -359,8 +563,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -491,6 +704,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境准备："><span class="nav-number">1.</span> <span class="nav-text">环境准备：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#测试系统macOS"><span class="nav-number">1.1.</span> <span class="nav-text">测试系统macOS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#postman案例导出"><span class="nav-number">2.</span> <span class="nav-text">postman案例导出</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#导出两个json文件"><span class="nav-number">2.1.</span> <span class="nav-text">导出两个json文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jenkins配置"><span class="nav-number">3.</span> <span class="nav-text">jenkins配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#jenkins常用命令"><span class="nav-number">3.1.</span> <span class="nav-text">jenkins常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jenkins项目配置"><span class="nav-number">3.2.</span> <span class="nav-text">jenkins项目配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最后一步"><span class="nav-number">4.</span> <span class="nav-text">最后一步</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -653,6 +882,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -694,6 +927,22 @@
 
 
 
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: 'd774dac95c063b8da401',
+      clientSecret: '7bd79d79af0e0151ffbf5517a9bc26d5b4a33900',
+      repo: 'mickeytestergao.github.io',
+      owner: 'MickeyTesterGao',
+      admin: ['MickeyTesterGao'],
+      id: location.pathname,
+      distractionFreeMode: 'true'
+    })
+    gitalk.render('gitalk-container')
+  </script>
 
   
 

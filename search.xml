@@ -4,17 +4,23 @@
   
     
     <entry>
-      <title>这是一个新的博客</title>
-      <link href="/2019/06/28/%E8%BF%99%E6%98%AF%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84%E5%8D%9A%E5%AE%A2/"/>
-      <url>/2019/06/28/%E8%BF%99%E6%98%AF%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84%E5%8D%9A%E5%AE%A2/</url>
+      <title>postman+newman+jenkins持续集成</title>
+      <link href="/2019/06/28/postman1/"/>
+      <url>/2019/06/28/postman1/</url>
       
-        <content type="html"><![CDATA[<img src="/2019/06/28/这是一个新的博客/image.png" title="这是一个新的博客的图片的说明"><a id="more"></a><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">"My New Post"</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>]]></content>
+        <content type="html"><![CDATA[<img src="/2019/06/28/postman1/logo.jpg" title="postman"><p>用现有开源工具搭建一套轻量级接口自动化测试框架，集成了报告模板和Email发送；</p><a id="more"></a><h2 id="环境准备："><a href="#环境准备：" class="headerlink" title="环境准备："></a>环境准备：</h2><h3 id="测试系统macOS"><a href="#测试系统macOS" class="headerlink" title="测试系统macOS"></a>测试系统macOS</h3><pre><code>1、本地jenkins环境建议jenkins官网下载macos对应版本，[官网地址](https://jenkins.io/zh/)2、安装postman软件建议官网下载最新版本，[官网地址](https://www.getpostman.com/)3、注册github账号，用于存放脚本4、安装newman插件建议命令安装 npm或者brew<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">$ npm install -g newman<br></code></pre></td></tr></table></figure></code></pre><h2 id="postman案例导出"><a href="#postman案例导出" class="headerlink" title="postman案例导出"></a>postman案例导出</h2><h3 id="导出两个json文件"><a href="#导出两个json文件" class="headerlink" title="导出两个json文件"></a>导出两个json文件</h3><ul><li>注“(有用到环境变量的可以导出，如不需要可以不导出)”<br>1、collections导出步骤–&gt;选中collections–&gt;点击右下角三个点–&gt;选中Export 确定导出即可<br>2、环境变量导出步骤若你的脚本中存在环境变量，那么也需要将环境变量一并导出为json格式<br>导出方法如下，点击postman右上角设置按钮，按照下面操作步骤导出即可；<br>3、生成的两个json格式的文件，一个为案例文件一个为环境变量文件，将文件提交到github项目上面。<br>参考我的项目格式：<br>生成报告的模板有很多，也可以自定义，我这个是在github上找的，[我的项目地址]（<a href="https://github.com/MickeyTesterGao/postman_autotest/）" target="_blank" rel="noopener">https://github.com/MickeyTesterGao/postman_autotest/）</a></li></ul><h2 id="jenkins配置"><a href="#jenkins配置" class="headerlink" title="jenkins配置"></a>jenkins配置</h2><h3 id="jenkins常用命令"><a href="#jenkins常用命令" class="headerlink" title="jenkins常用命令"></a>jenkins常用命令</h3><pre><code>(1)先说两个jenkins常用命令启动：$ sudo launchctl load /Library/LaunchDaemons/org.jenkins-ci.plist停止:$ sudo launchctl unload /Library/LaunchDaemons/org.jenkins-ci.plist(2)新建一个jenkins项目,用Freestyle project，项目名字随便起</code></pre><h3 id="jenkins项目配置"><a href="#jenkins项目配置" class="headerlink" title="jenkins项目配置"></a>jenkins项目配置</h3><p>(1)配置git<br>这块不详细说了，并不难，之前了解过jenkins的都应该会配置；<br>(2)配置shell脚本</p><ul><li>注：仅供参考，环境不同，脚本也会不一样<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined">#!/bin/bash -ilex<br>cd /Users/Shared/Jenkins/Home/workspace/postman_api_auto/<br>newman run portApiTest.postman_collection.json -e portapitest.postman_environment.json --reporters cli,html --reporter-html-template templates/htmlreqres.hbs --reporter-html-export newman/index.html portApiTest.postman_collection.json<br></code></pre></td></tr></table></figure></li></ul><p>(3)增加html报告<br>需要引入HTML插件名称HTML_Publisher,直接在Manage Jenkins–&gt;Manage Plugins 里面下载，你会发现下载失败，由于国内有墙的原因，可以换个<br>国内镜像下载：<a href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json</a></p><img src="/2019/06/28/postman1/update.png" title="镜像更新位置"><p>此时部署一下项目，会发现左侧菜单栏多了一栏html report</p><img src="/2019/06/28/postman1/html.png" title="html报告显示位置"><p>点击进去你会发现样式不显示，可能会存在这种情况，解决方式如下：<br>安装Groovy插件，重启jenkins<br>使用管理员账号登录jenkins，进入项目配置页 ==&gt; Post Steps ==&gt; 添加Execute system Groovy script ==&gt; 输入 System.setProperty(“hudson.model.DirectoryBrowserSupport.CSP”, “”) ==&gt; 保存<br>再重新部署看效果</p><img src="/2019/06/28/postman1/report.png" title="html报告显示"><p>(4)配置发送邮件<br>首先配置公共信息配置，我以QQ邮箱为例，首先manage jenkins==&gt;configure system ==&gt;extended E-mail Notification</p><img src="/2019/06/28/postman1/email1.png" title="邮件信息"><p>下面的Default Triggers需要勾选Failure—Any和Success<br>邮件通知配置：</p><img src="/2019/06/28/postman1/email2.png" title="邮件通知"><p>之后应用–&gt;保存<br>(5)项目层级配置<br>配置构建后操作，增加Editable Email Notification<br>需要更改的地方：<br>Prohject Recipient List 填写你的邮箱<br>Content Type 选择HTML(text/html)<br>Advances Settings 增加Trigger 增加Failure—Any和Success<br>下面我以Success为例说一下里面的配置</p><img src="/2019/06/28/postman1/success.png" title="邮件配置"><p>说一下附件取的路径，默认是workspace的job下面，也就是workspace/项目名称，<br>我的shell里面建立了一个newman的文件来存放测试报告；</p><h2 id="最后一步"><a href="#最后一步" class="headerlink" title="最后一步"></a>最后一步</h2><p>重新部署，邮箱就能收到测试报告了；</p>]]></content>
       
+      
+      <categories>
+          
+          <category> postman系列 </category>
+          
+      </categories>
       
       
         <tags>
             
-            <tag> 测试 </tag>
+            <tag> postman系列 </tag>
             
         </tags>
       
@@ -64,9 +70,9 @@
     
     
     <entry>
-      <title>分类</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title>关于</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -75,9 +81,9 @@
     
     
     <entry>
-      <title>关于</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
+      <title>分类</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
